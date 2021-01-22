@@ -254,6 +254,26 @@ const TextareaContent = styled.textarea`
   }
 `;
 
+const Title = styled.h3`
+  margin-bottom: 10px;
+`;
+const Content = styled.p`
+  margin-bottom: 20px;
+`;
+const DefaultButton = styled.button`
+  padding: 6px 12px;
+  border-radius: 5px;
+  color: #fff;
+  border: none;
+  float: right;
+`;
+const ConfirmBtn = styled(DefaultButton)`
+  background-color: #db4a39;
+`;
+const CancelBtn = styled(DefaultButton)`
+  background-color: #211f1f;
+  margin-right: 10px;
+`;
 export {
   Container,
   GlassContainer,
@@ -276,4 +296,8 @@ export {
   RightWrapper,
   InputTitle,
   TextareaContent,
+  Title,
+  Content,
+  ConfirmBtn,
+  CancelBtn,
 };

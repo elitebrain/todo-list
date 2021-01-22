@@ -16,11 +16,15 @@ import {
   InputTitle,
   TextareaContent,
   LogoutBtn,
+  Title,
+  Content,
+  ConfirmBtn,
+  CancelBtn,
 } from "./App.styles";
 import { authService, dbService } from "./fbase";
 
 const Main = (props) => {
-  const { userObj, todos } = props;
+  const { userObj, todos, openModal, closeModal } = props;
   const [isVisibleScroll, setIsVisibleScroll] = useState(false);
   const [activeScrollTop, setActiveScrollTop] = useState(0);
   const [activeScrollHeight, setActiveScrollHeight] = useState(0);
@@ -115,10 +119,18 @@ const Main = (props) => {
   };
 
   const _handleRemove = async (id) => {
-    const isOk = window.confirm("정말 삭제 하시겠습니까?");
-    if (isOk) {
-      await dbService.doc(`todos/${id}`).delete();
-    }
+    const _handleOk = () => {
+      dbService.doc(`todos/${id}`).delete();
+      closeModal();
+    };
+    openModal(
+      <>
+        <Title>메모 삭제</Title>
+        <Content>선택한 메모를 삭제 하시겠습니까?</Content>
+        <ConfirmBtn onClick={() => _handleOk()}>삭제</ConfirmBtn>
+        <CancelBtn onClick={() => closeModal()}>취소</CancelBtn>
+      </>
+    );
   };
 
   const _handleWheel = (e) => {
