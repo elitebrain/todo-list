@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/todo-list/static/css/main.72cc1e4f.chunk.css",
+    "main.js": "/todo-list/static/js/main.05c7e338.chunk.js",
+    "main.js.map": "/todo-list/static/js/main.05c7e338.chunk.js.map",
+    "runtime-main.js": "/todo-list/static/js/runtime-main.73d753c7.js",
+    "runtime-main.js.map": "/todo-list/static/js/runtime-main.73d753c7.js.map",
+    "static/js/2.d8c80380.chunk.js": "/todo-list/static/js/2.d8c80380.chunk.js",
+    "static/js/2.d8c80380.chunk.js.map": "/todo-list/static/js/2.d8c80380.chunk.js.map",
+    "index.html": "/todo-list/index.html",
+    "static/css/main.72cc1e4f.chunk.css.map": "/todo-list/static/css/main.72cc1e4f.chunk.css.map",
+    "static/js/2.d8c80380.chunk.js.LICENSE.txt": "/todo-list/static/js/2.d8c80380.chunk.js.LICENSE.txt",
+    "static/media/check(white).2c5d41f9.svg": "/todo-list/static/media/check(white).2c5d41f9.svg",
+    "static/media/github-brands.45ae3fa2.svg": "/todo-list/static/media/github-brands.45ae3fa2.svg",
+    "static/media/google-plus-g-brands.698cb241.svg": "/todo-list/static/media/google-plus-g-brands.698cb241.svg",
+    "static/media/trash(white).d7da90f6.svg": "/todo-list/static/media/trash(white).d7da90f6.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.73d753c7.js",
+    "static/js/2.d8c80380.chunk.js",
+    "static/css/main.72cc1e4f.chunk.css",
+    "static/js/main.05c7e338.chunk.js"
+  ]
+}
