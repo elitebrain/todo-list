@@ -1,17 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-const Modal = (props) => {
+const ModalConfirm = (props) => {
   const { children, handleCancel } = props;
   return (
-    <ModalContainer>
-      <ModalOverlay onClick={() => handleCancel()} />
-      <ModalContent>{children}</ModalContent>
-    </ModalContainer>
+    <ConfirmContainer>
+      <ConfirmOverlay onClick={() => handleCancel()} />
+      <ConfirmContent>{children}</ConfirmContent>
+    </ConfirmContainer>
   );
 };
 
-const ModalContainer = styled.div`
+const ConfirmContainer = styled.div`
   position: fixed;
   left: 0;
   top: 0;
@@ -23,19 +23,19 @@ const ModalContainer = styled.div`
   justify-content: center;
   align-items: center;
 `;
-const ModalOverlay = styled.div`
+const ConfirmOverlay = styled.div`
   position: absolute;
   left: 0;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: var(--bg-modal-overlay);
   width: 100%;
   height: 100%;
 `;
-const ModalContent = styled.div`
-  background-color: #fff;
+const ConfirmContent = styled.div`
+  background-color: var(--white);
   border-radius: 10px;
   position: relative;
   padding: 20px 40px;
 `;
 
-export default Modal;
+export default ModalConfirm;

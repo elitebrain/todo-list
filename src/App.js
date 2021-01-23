@@ -1,17 +1,17 @@
-import React, { useState, useEffect, Children } from "react";
+import React, { useState, useEffect } from "react";
 import { authService, dbService } from "./fbase";
-import { Container, GlassContainer, InitialP } from "./App.styles";
+import { GlobalStyle, Container, GlassContainer, InitialP } from "./App.styles";
 import Login from "./Login";
 import Main from "./Main";
-import Modal from "Modal";
+import ModalConfirm from "ModalConfirm";
 
 const todos = dbService.collection("todos");
 
 const App = () => {
   const [userObj, setUserObj] = useState(null);
   const [init, setInit] = useState(false);
-  const [isViewModal, setIsViewModal] = useState(false);
-  const [modalChildren, setModalChildren] = useState(null);
+  const [isViewConfirm, setIsViewConfirm] = useState(false);
+  const [modalChildren, setConfirmChildren] = useState(null);
   // const [clock, setClock] = useState({ h: "00", m: "00", s: "00" });
 
   useEffect(() => {
@@ -29,26 +29,26 @@ const App = () => {
     });
   }, []);
 
-  const _openModal = (children) => {
-    setModalChildren(children);
-    setIsViewModal(true);
+  const _openConfirm = (children) => {
+    setConfirmChildren(children);
+    setIsViewConfirm(true);
   };
 
-  const _closeModal = () => {
-    setIsViewModal(false);
+  const _closeConfirm = () => {
+    setIsViewConfirm(false);
   };
 
-  console.log("userObj", userObj);
   return (
     <Container>
+      <GlobalStyle />
       {init ? (
         <GlassContainer isLoggedIn={userObj}>
           {userObj ? (
             <Main
               userObj={userObj}
               todos={todos}
-              openModal={_openModal}
-              closeModal={_closeModal}
+              openConfirm={_openConfirm}
+              closeConfirm={_closeConfirm}
             />
           ) : (
             <Login />
@@ -57,10 +57,10 @@ const App = () => {
       ) : (
         <InitialP>Initialize...</InitialP>
       )}
-      {isViewModal && (
-        <Modal handleCancel={() => setIsViewModal(false)}>
+      {isViewConfirm && (
+        <ModalConfirm handleCancel={() => setIsViewConfirm(false)}>
           {modalChildren}
-        </Modal>
+        </ModalConfirm>
       )}
     </Container>
   );

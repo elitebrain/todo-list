@@ -20,11 +20,12 @@ import {
   Content,
   ConfirmBtn,
   CancelBtn,
-} from "./App.styles";
+  WelcomeMsg,
+} from "./Main.styles";
 import { authService, dbService } from "./fbase";
 
 const Main = (props) => {
-  const { userObj, todos, openModal, closeModal } = props;
+  const { userObj, todos, openConfirm, closeConfirm } = props;
   const [isVisibleScroll, setIsVisibleScroll] = useState(false);
   const [activeScrollTop, setActiveScrollTop] = useState(0);
   const [activeScrollHeight, setActiveScrollHeight] = useState(0);
@@ -121,20 +122,19 @@ const Main = (props) => {
   const _handleRemove = async (id) => {
     const _handleOk = () => {
       dbService.doc(`todos/${id}`).delete();
-      closeModal();
+      closeConfirm();
     };
-    openModal(
+    openConfirm(
       <>
         <Title>메모 삭제</Title>
         <Content>선택한 메모를 삭제 하시겠습니까?</Content>
         <ConfirmBtn onClick={() => _handleOk()}>삭제</ConfirmBtn>
-        <CancelBtn onClick={() => closeModal()}>취소</CancelBtn>
+        <CancelBtn onClick={() => closeConfirm()}>취소</CancelBtn>
       </>
     );
   };
 
   const _handleWheel = (e) => {
-    console.log("_handleWheel", e.deltaY, toDoList.length);
     if (e.deltaY > 0) {
       // down
       if (scroll + 10 < toDoList.length) {
@@ -166,6 +166,9 @@ const Main = (props) => {
   return (
     <>
       <LeftWrapper>
+        <WelcomeMsg>
+          {userObj.displayName && `Welcome ${userObj.displayName}`}
+        </WelcomeMsg>
         <InputNewToDo
           value={newToDo}
           onChange={(e) => setNewToDo(e.target.value)}
