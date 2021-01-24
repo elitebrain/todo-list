@@ -102,7 +102,7 @@ const ToDoItemText = styled.span`
   text-overflow: ellipsis;
   &.is_done {
     text-decoration: line-through;
-    text-decoration-color: #658ec6;
+    text-decoration-color: #6cdbeb;
     color: rgba(101, 142, 198, 0.2);
   }
   &:hover {
