@@ -24,6 +24,10 @@ const GlobalStyle = createGlobalStyle`
   textarea {
     font-family: inherit;
   }
+  :root {
+    --white: #fff;
+    --bg-modal-overlay: rgba(0, 0, 0, 0.6);
+  }
 `;
 
 const Container = styled.div`

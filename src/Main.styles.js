@@ -112,6 +112,7 @@ const ToDoItemText = styled.span`
 const CheckIcon = styled.picture`
   width: 24px;
   height: 24px;
+  color: ${(props) => (props.checked ? "rgba(101,142,198,0.2)" : "#6cdbeb")};
   margin-right: 12px;
   display: inline-block;
   vertical-align: middle;
@@ -126,6 +127,7 @@ const CheckIcon = styled.picture`
 const TrashIcon = styled.picture`
   width: 24px;
   height: 24px;
+  color: #6cdbeb;
   margin-right: 12px;
   display: inline-block;
   vertical-align: middle;

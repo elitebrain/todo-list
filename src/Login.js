@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { authService, firebaseInstance } from "./fbase";
 
-import googleIcon from "./images/google-plus-g-brands.svg";
-import githubIcon from "./images/github-brands.svg";
+import { ReactComponent as GoogleIconSvg } from "./images/google-plus-g-brands.svg";
+import { ReactComponent as GithubIconSvg } from "./images/github-brands.svg";
 
 import {
   Container,
@@ -111,11 +111,11 @@ const Login = () => {
         </SignupWrapper>
       )}
       <GoogleBtn onClick={(e) => _handleSocialLogin(e, "google")}>
-        <img src={googleIcon} alt="google_icon" />
+        <GoogleIconSvg />
         <span>Continue with google</span>
       </GoogleBtn>
       <GithubBtn onClick={(e) => _handleSocialLogin(e, "github")}>
-        <img src={githubIcon} alt="github_icon" />
+        <GithubIconSvg />
         <span>Continue with github</span>
       </GithubBtn>
     </Container>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
-import checkIcon from "./images/check(white).svg";
-import trashIcon from "./images/trash(white).svg";
+import { ReactComponent as CheckIconSvg } from "./images/check(white).svg";
+import { ReactComponent as TrashIconSvg } from "./images/trash(white).svg";
 import {
   LeftWrapper,
   InputNewToDo,
@@ -185,11 +185,15 @@ const Main = (props) => {
                 >
                   {todo.title}
                 </ToDoItemText>
-                <CheckIcon onClick={() => _handleToggle(todo.id)}>
-                  <img src={checkIcon} alt="check_icon" />
+                <CheckIcon
+                  checked={todo.isDone}
+                  onClick={() => _handleToggle(todo.id)}
+                >
+                  <CheckIconSvg />
+                  {/* <img src={checkIcon} alt="check_icon" /> */}
                 </CheckIcon>
                 <TrashIcon onClick={() => _handleRemove(todo.id)}>
-                  <img src={trashIcon} alt="trash_icon" />
+                  <TrashIconSvg />
                 </TrashIcon>
               </ToDoItem>
             ))}

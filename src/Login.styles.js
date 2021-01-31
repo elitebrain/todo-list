@@ -93,21 +93,53 @@ const Button = styled(DefaultButton)`
   }
 `;
 const GoogleBtn = styled(DefaultButton)`
+  position: relative;
+  & > svg {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    background-color: #fff;
+    height: 30px;
+    border-radius: 5px;
+    padding: 3px;
+  }
   border: none;
   font-size: 16px;
   margin-top: 10px;
   background-color: #db4a39;
+  color: #db4a39;
   transition: 0.3s ease-in-out;
+  & > span {
+    color: #fff;
+  }
   &:hover {
     cursor: pointer;
   }
 `;
 const GithubBtn = styled(DefaultButton)`
+  position: relative;
+  & > svg {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    background-color: #fff;
+    height: 30px;
+    border-radius: 5px;
+    padding: 3px;
+  }
   border: none;
   font-size: 16px;
   margin-top: 10px;
   background-color: #211f1f;
+  color: #211f1f;
   transition: 0.3s ease-in-out;
+  & > span {
+    color: #fff;
+  }
   &:hover {
     cursor: pointer;
   }
