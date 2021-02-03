@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import ReactQuill from "react-quill";
 import { ReactComponent as CheckIconSvg } from "./images/check(white).svg";
 import { ReactComponent as TrashIconSvg } from "./images/trash(white).svg";
 import {
@@ -14,13 +15,13 @@ import {
   ScrollBarActive,
   RightWrapper,
   InputTitle,
-  TextareaContent,
   LogoutBtn,
   Title,
   Content,
   ConfirmBtn,
   CancelBtn,
   WelcomeMsg,
+  QuillWrapper,
 } from "./Main.styles";
 import { authService, dbService } from "./fbase";
 
@@ -55,15 +56,20 @@ const Main = (props) => {
   const _handleToDo = useCallback(
     (id) => {
       const filteredList = toDoList.filter((v) => v.id === id);
+      const title = filteredList[0]?.title;
+      const content = filteredList[0]?.content;
+      if (document.querySelector(".ql-editor")) {
+        document.querySelector(".ql-editor").innerHTML = content;
+      }
       setState({
         id: filteredList[0]?.id,
-        title: filteredList[0]?.title,
-        content: filteredList[0]?.content,
+        title,
+        content,
       });
       setPrevState({
         id: filteredList[0]?.id,
-        title: filteredList[0]?.title,
-        content: filteredList[0]?.content,
+        title,
+        content,
       });
     },
     [toDoList]
@@ -117,6 +123,9 @@ const Main = (props) => {
         updated_at: new Date(),
       });
     }
+  };
+  const _handleChangeContent = (content) => {
+    setState((prevState) => Object.assign({}, prevState, { content }));
   };
 
   const _handleRemove = async (id) => {
@@ -215,12 +224,15 @@ const Main = (props) => {
             onChange={_handleChange}
             onBlur={_handleSave}
           />
-          <TextareaContent
-            value={content}
-            name="content"
-            onChange={_handleChange}
-            onBlur={_handleSave}
-          />
+          <QuillWrapper onBlur={_handleSave}>
+            <ReactQuill
+              value={content}
+              onChange={_handleChangeContent}
+              theme="snow"
+              modules={{ toolbar: false }}
+              className="quill"
+            />
+          </QuillWrapper>
         </RightWrapper>
       )}
     </>

@@ -192,7 +192,6 @@ const RightWrapper = styled.div`
   padding: 32px;
   text-align: center;
   animation: fadeIn 0.5s linear;
-  text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
   user-select: none;
   @media (max-width: 1020px) {
     display: block;
@@ -208,24 +207,9 @@ const InputTitle = styled(Input)`
   padding: 6px 12px;
   color: #426696;
 `;
-const TextareaContent = styled.textarea`
-  width: 100%;
-  height: calc(100% - 86px);
-  border: 0;
-  border-radius: 1rem;
-  color: #658ec6;
-  font-size: 18px;
-  padding: 2rem;
-  margin-top: 20px;
-  background: linear-gradient(
-    to left top,
-    rgba(255, 255, 255, 0.2),
-    rgba(255, 255, 255, 0.9)
-  );
-  resize: none;
-  &:focus {
-    outline: none;
-  }
+
+const QuillWrapper = styled.div`
+  height: 100%;
 `;
 
 const Title = styled.h3`
@@ -263,7 +247,7 @@ export {
   ScrollBarActive,
   RightWrapper,
   InputTitle,
-  TextareaContent,
+  QuillWrapper,
   LogoutBtn,
   Title,
   Content,
