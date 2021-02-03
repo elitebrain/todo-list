@@ -2,6 +2,9 @@ import React, { useState, useEffect, useCallback } from "react";
 import ReactQuill from "react-quill";
 import { ReactComponent as CheckIconSvg } from "./images/check(white).svg";
 import { ReactComponent as TrashIconSvg } from "./images/trash(white).svg";
+import { ReactComponent as GoogleIconSvg } from "./images/google-plus-g-brands.svg";
+import { ReactComponent as GithubIconSvg } from "./images/github-brands.svg";
+import { ReactComponent as EmailSvg } from "./images/email.svg";
 import {
   LeftWrapper,
   InputNewToDo,
@@ -22,6 +25,7 @@ import {
   CancelBtn,
   WelcomeMsg,
   QuillWrapper,
+  IconWrapper,
 } from "./Main.styles";
 import { authService, dbService } from "./fbase";
 
@@ -171,12 +175,41 @@ const Main = (props) => {
     }
   };
 
+  const _setIcon = () => {
+    console.log("userObj", userObj);
+    const { signinBy } = userObj;
+    if (signinBy === "github.com") {
+      return <GoogleIconSvg />;
+    }
+    if (signinBy === "google.com") {
+      return <GithubIconSvg />;
+    }
+    if (signinBy === "password") {
+    }
+  };
+
   const { id, title, content } = state;
+  const { signinBy } = userObj;
   return (
     <>
       <LeftWrapper>
         <WelcomeMsg>
-          {userObj.displayName && `Welcome ${userObj.displayName}`}
+          {signinBy === "github.com" && (
+            <IconWrapper color="#211f1f">
+              <GithubIconSvg />
+            </IconWrapper>
+          )}
+          {signinBy === "google.com" && (
+            <IconWrapper color="#db4a39">
+              <GoogleIconSvg />
+            </IconWrapper>
+          )}
+          {signinBy === "password" && (
+            <IconWrapper color="#000">
+              <EmailSvg />
+            </IconWrapper>
+          )}
+          {`Welcome ${userObj.displayName || ""}`}
         </WelcomeMsg>
         <InputNewToDo
           value={newToDo}

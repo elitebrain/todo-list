@@ -21,6 +21,7 @@ const App = () => {
           displayName: user.displayName,
           uid: user.uid,
           updateProfile: (args) => user.updateProfile(args),
+          signinBy: user.b.b.b,
         });
       } else {
         setUserObj(null);

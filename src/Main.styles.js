@@ -233,6 +233,23 @@ const CancelBtn = styled(DefaultButton)`
   margin-right: 10px;
 `;
 
+const IconWrapper = styled.span`
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  width: 33px;
+  height: 33px;
+  margin-right: 10px;
+  color: ${(props) => props.color};
+  & > svg {
+    position: absolute;
+    height: 26px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+`;
+
 export {
   LeftWrapper,
   WelcomeMsg,
@@ -253,4 +270,5 @@ export {
   Content,
   ConfirmBtn,
   CancelBtn,
+  IconWrapper,
 };
