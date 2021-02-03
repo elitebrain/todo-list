@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/todo-list/static/css/main.9ca0baa1.chunk.css",
-    "main.js": "/todo-list/static/js/main.2b8350cc.chunk.js",
-    "main.js.map": "/todo-list/static/js/main.2b8350cc.chunk.js.map",
+    "main.js": "/todo-list/static/js/main.1243c4cc.chunk.js",
+    "main.js.map": "/todo-list/static/js/main.1243c4cc.chunk.js.map",
     "runtime-main.js": "/todo-list/static/js/runtime-main.73d753c7.js",
     "runtime-main.js.map": "/todo-list/static/js/runtime-main.73d753c7.js.map",
     "static/css/2.a2032d84.chunk.css": "/todo-list/static/css/2.a2032d84.chunk.css",
@@ -13,6 +13,7 @@
     "static/css/main.9ca0baa1.chunk.css.map": "/todo-list/static/css/main.9ca0baa1.chunk.css.map",
     "static/js/2.0b422e55.chunk.js.LICENSE.txt": "/todo-list/static/js/2.0b422e55.chunk.js.LICENSE.txt",
     "static/media/check(white).5dcf9568.svg": "/todo-list/static/media/check(white).5dcf9568.svg",
+    "static/media/email.0e360d89.svg": "/todo-list/static/media/email.0e360d89.svg",
     "static/media/github-brands.e2f07326.svg": "/todo-list/static/media/github-brands.e2f07326.svg",
     "static/media/google-plus-g-brands.e8bde05b.svg": "/todo-list/static/media/google-plus-g-brands.e8bde05b.svg",
     "static/media/trash(white).96ae42b3.svg": "/todo-list/static/media/trash(white).96ae42b3.svg"
@@ -22,6 +23,6 @@
     "static/css/2.a2032d84.chunk.css",
     "static/js/2.0b422e55.chunk.js",
     "static/css/main.9ca0baa1.chunk.css",
-    "static/js/main.2b8350cc.chunk.js"
+    "static/js/main.1243c4cc.chunk.js"
   ]
 }
