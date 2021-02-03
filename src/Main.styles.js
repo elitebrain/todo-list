@@ -21,7 +21,7 @@ const LeftWrapper = styled.aside`
     width: 536px;
   }
   @media (max-width: 768px) {
-    width: 500px;
+    width: 419px;
   }
 `;
 
@@ -50,7 +50,7 @@ const Colone = styled.span`
 const Input = styled.input`
   border: 1px solid rgba(101, 142, 198, 0.2);
   background-color: transparent;
-  font-size: 36px;
+  font-size: 24px;
   border-radius: 5px;
   &:focus {
     outline: none;
@@ -88,7 +88,7 @@ const ToDoList = styled.ul`
 `;
 const ToDoItem = styled.li`
   display: block;
-  font-size: 24px;
+  font-size: 20px;
   height: 36px;
 `;
 const ToDoItemText = styled.span`
@@ -100,6 +100,8 @@ const ToDoItemText = styled.span`
   color: #658ec6;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 36px;
   &.is_done {
     text-decoration: line-through;
     text-decoration-color: #6cdbeb;
@@ -197,7 +199,7 @@ const RightWrapper = styled.div`
     margin: 40px auto;
   }
   @media (max-width: 768px) {
-    width: 500px;
+    width: 419px;
     padding: 0;
   }
 `;
@@ -212,7 +214,7 @@ const TextareaContent = styled.textarea`
   border: 0;
   border-radius: 1rem;
   color: #658ec6;
-  font-size: 24px;
+  font-size: 18px;
   padding: 2rem;
   margin-top: 20px;
   background: linear-gradient(

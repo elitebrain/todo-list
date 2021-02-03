@@ -53,6 +53,7 @@ const GlassContainer = styled.div`
   overflow: hidden;
   @media (max-width: 1020px) {
     height: 1700px;
+    margin: 1rem;
   }
 `;
 
