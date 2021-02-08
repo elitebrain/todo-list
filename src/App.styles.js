@@ -28,6 +28,9 @@ const GlobalStyle = createGlobalStyle`
     --white: #fff;
     --bg-modal-overlay: rgba(0, 0, 0, 0.6);
   }
+  .ql-editor::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const Container = styled.div`
