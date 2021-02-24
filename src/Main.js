@@ -262,7 +262,7 @@ const Main = (props) => {
               value={content}
               onChange={_handleChangeContent}
               theme="snow"
-              modules={{ toolbar: false }}
+              // modules={{ toolbar: false }}
               className="quill"
             />
           </QuillWrapper>
