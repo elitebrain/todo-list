@@ -1,10 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
-import ReactQuill from "react-quill";
 import { ReactComponent as CheckIconSvg } from "./images/check(white).svg";
 import { ReactComponent as TrashIconSvg } from "./images/trash(white).svg";
-import { ReactComponent as GoogleIconSvg } from "./images/google-plus-g-brands.svg";
-import { ReactComponent as GithubIconSvg } from "./images/github-brands.svg";
-import { ReactComponent as EmailSvg } from "./images/email.svg";
 import {
   LeftWrapper,
   InputNewToDo,
@@ -18,47 +14,15 @@ import {
   ScrollBarActive,
   RightWrapper,
   InputTitle,
+  TextareaContent,
   LogoutBtn,
   Title,
   Content,
   ConfirmBtn,
   CancelBtn,
   WelcomeMsg,
-  QuillWrapper,
-  IconWrapper,
 } from "./Main.styles";
 import { authService, dbService } from "./fbase";
-const modules = {
-  toolbar: [
-    [{ header: [1, 2, 3, false] }],
-    [{ color: [] }],
-    [{ align: [] }],
-    ["bold", "italic", "underline", "strike", "blockquote"],
-    [
-      { list: "ordered" },
-      { list: "bullet" },
-      { indent: "-1" },
-      { indent: "+1" },
-    ],
-    ["link", "image"],
-    ["clean"],
-  ],
-};
-const formats = [
-  "header",
-  "bold",
-  "italic",
-  "underline",
-  "strike",
-  "blockquote",
-  "list",
-  "bullet",
-  "indent",
-  "link",
-  "image",
-  "color",
-  "align",
-];
 
 const Main = (props) => {
   const { userObj, todos, openConfirm, closeConfirm } = props;
@@ -71,17 +35,6 @@ const Main = (props) => {
   const [state, setState] = useState({});
   const [addNew, setAddNew] = useState(false);
   const [toDoList, setToDoList] = useState([]);
-  const [isViewTextarea, setIsViewTextarea] = useState(false);
-  const [text, setText] = useState("");
-
-  const handleApply = () => {
-    setState((prevState) => ({ ...prevState, content: text }));
-    setIsViewTextarea(false);
-  };
-  const viewTextarea = () => {
-    setIsViewTextarea(true);
-    setText(state.content);
-  };
 
   useEffect(() => {
     setActiveScrollTop(`${parseFloat((scroll * 360) / toDoList.length)}px`);
@@ -102,20 +55,15 @@ const Main = (props) => {
   const _handleToDo = useCallback(
     (id) => {
       const filteredList = toDoList.filter((v) => v.id === id);
-      const title = filteredList[0]?.title;
-      const content = filteredList[0]?.content;
-      if (document.querySelector(".ql-editor")) {
-        document.querySelector(".ql-editor").innerHTML = content;
-      }
       setState({
         id: filteredList[0]?.id,
-        title,
-        content,
+        title: filteredList[0]?.title,
+        content: filteredList[0]?.content,
       });
       setPrevState({
         id: filteredList[0]?.id,
-        title,
-        content,
+        title: filteredList[0]?.title,
+        content: filteredList[0]?.content,
       });
     },
     [toDoList]
@@ -160,21 +108,15 @@ const Main = (props) => {
     setState((prevState) => Object.assign({}, prevState, { [name]: value }));
   };
 
-  const _handleSave = (isText) => {
+  const _handleSave = () => {
     const { id, title, content } = state;
-    const _content = isText ? text : content;
-    console.log(_content);
     if (prevState.title !== title || prevState.content !== content) {
       dbService.doc(`todos/${id}`).update({
         title,
-        content: _content,
+        content,
         updated_at: new Date(),
       });
     }
-  };
-  const _handleChangeContent = (content, delta, source, editor) => {
-    console.log(content, editor.getHTML());
-    setState((prevState) => Object.assign({}, prevState, { content }));
   };
 
   const _handleRemove = async (id) => {
@@ -220,40 +162,12 @@ const Main = (props) => {
     }
   };
 
-  const _setIcon = () => {
-    const { signinBy } = userObj;
-    if (signinBy === "github.com") {
-      return <GoogleIconSvg />;
-    }
-    if (signinBy === "google.com") {
-      return <GithubIconSvg />;
-    }
-    if (signinBy === "password") {
-    }
-  };
-
   const { id, title, content } = state;
-  const { signinBy } = userObj;
   return (
     <>
       <LeftWrapper>
         <WelcomeMsg>
-          {signinBy === "github.com" && (
-            <IconWrapper color="#211f1f">
-              <GithubIconSvg />
-            </IconWrapper>
-          )}
-          {signinBy === "google.com" && (
-            <IconWrapper color="#db4a39">
-              <GoogleIconSvg />
-            </IconWrapper>
-          )}
-          {signinBy === "password" && (
-            <IconWrapper color="#000">
-              <EmailSvg />
-            </IconWrapper>
-          )}
-          {`Welcome ${userObj.displayName || ""}`}
+          {userObj.displayName && `Welcome ${userObj.displayName}`}
         </WelcomeMsg>
         <InputNewToDo
           value={newToDo}
@@ -301,31 +215,12 @@ const Main = (props) => {
             onChange={_handleChange}
             onBlur={_handleSave}
           />
-          <QuillWrapper onBlur={_handleSave}>
-            {/* <button onClick={() => viewTextarea()}>소스코드 수정하기</button>
-            <button onClick={() => _handleSave(true)}>소스코드 적용하기</button> */}
-            <ReactQuill
-              value={content}
-              onChange={_handleChangeContent}
-              theme="snow"
-              modules={modules}
-              formats={formats}
-              style={{
-                height: isViewTextarea
-                  ? "calc(60% - 86px)"
-                  : "calc(100% - 86px)",
-              }}
-            />
-            {/* {isViewTextarea && (
-              <textarea
-                style={{ width: "100%", height: "40%" }}
-                value={text}
-                onChange={
-                  (e) => setText(e.target.value)
-                }
-              ></textarea>
-            )} */}
-          </QuillWrapper>
+          <TextareaContent
+            value={content}
+            name="content"
+            onChange={_handleChange}
+            onBlur={_handleSave}
+          />
         </RightWrapper>
       )}
     </>

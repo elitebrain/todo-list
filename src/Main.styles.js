@@ -207,9 +207,24 @@ const InputTitle = styled(Input)`
   padding: 6px 12px;
   color: #426696;
 `;
-
-const QuillWrapper = styled.div`
-  height: 100%;
+const TextareaContent = styled.textarea`
+  width: 100%;
+  height: calc(100% - 86px);
+  border: 0;
+  border-radius: 1rem;
+  color: #658ec6;
+  font-size: 18px;
+  padding: 2rem;
+  margin-top: 20px;
+  background: linear-gradient(
+    to left top,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.9)
+  );
+  resize: none;
+  &:focus {
+    outline: none;
+  }
 `;
 
 const Title = styled.h3`
@@ -227,10 +242,16 @@ const DefaultButton = styled.button`
 `;
 const ConfirmBtn = styled(DefaultButton)`
   background-color: #db4a39;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 const CancelBtn = styled(DefaultButton)`
   background-color: #211f1f;
   margin-right: 10px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const IconWrapper = styled.span`
@@ -264,7 +285,7 @@ export {
   ScrollBarActive,
   RightWrapper,
   InputTitle,
-  QuillWrapper,
+  TextareaContent,
   LogoutBtn,
   Title,
   Content,
