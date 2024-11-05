@@ -149,7 +149,7 @@ const Main = (props) => {
   };
 
   const _handleNewToDo = (e) => {
-    if (e.keyCode === 13) {
+    if (e.keyCode === 13 && newToDo.length > 0) {
       todos.add({
         title: newToDo,
         content: "",
