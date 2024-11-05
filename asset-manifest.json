@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/todo-list/static/css/main.9ca0baa1.chunk.css",
-    "main.js": "/todo-list/static/js/main.42ba4c25.chunk.js",
-    "main.js.map": "/todo-list/static/js/main.42ba4c25.chunk.js.map",
-    "runtime-main.js": "/todo-list/static/js/runtime-main.6499a3fd.js",
-    "runtime-main.js.map": "/todo-list/static/js/runtime-main.6499a3fd.js.map",
-    "static/css/2.f83b9687.chunk.css": "/todo-list/static/css/2.f83b9687.chunk.css",
-    "static/js/2.666ae849.chunk.js": "/todo-list/static/js/2.666ae849.chunk.js",
-    "static/js/2.666ae849.chunk.js.map": "/todo-list/static/js/2.666ae849.chunk.js.map",
+    "main.css": "/todo-list/static/css/main.02cec1bc.chunk.css",
+    "main.js": "/todo-list/static/js/main.67d89b32.chunk.js",
+    "main.js.map": "/todo-list/static/js/main.67d89b32.chunk.js.map",
+    "runtime-main.js": "/todo-list/static/js/runtime-main.73d753c7.js",
+    "runtime-main.js.map": "/todo-list/static/js/runtime-main.73d753c7.js.map",
+    "static/css/2.a2032d84.chunk.css": "/todo-list/static/css/2.a2032d84.chunk.css",
+    "static/js/2.a741ca2b.chunk.js": "/todo-list/static/js/2.a741ca2b.chunk.js",
+    "static/js/2.a741ca2b.chunk.js.map": "/todo-list/static/js/2.a741ca2b.chunk.js.map",
     "index.html": "/todo-list/index.html",
-    "static/css/2.f83b9687.chunk.css.map": "/todo-list/static/css/2.f83b9687.chunk.css.map",
-    "static/css/main.9ca0baa1.chunk.css.map": "/todo-list/static/css/main.9ca0baa1.chunk.css.map",
-    "static/js/2.666ae849.chunk.js.LICENSE.txt": "/todo-list/static/js/2.666ae849.chunk.js.LICENSE.txt",
+    "static/css/2.a2032d84.chunk.css.map": "/todo-list/static/css/2.a2032d84.chunk.css.map",
+    "static/css/main.02cec1bc.chunk.css.map": "/todo-list/static/css/main.02cec1bc.chunk.css.map",
+    "static/js/2.a741ca2b.chunk.js.LICENSE.txt": "/todo-list/static/js/2.a741ca2b.chunk.js.LICENSE.txt",
     "static/media/check(white).5dcf9568.svg": "/todo-list/static/media/check(white).5dcf9568.svg",
     "static/media/github-brands.e2f07326.svg": "/todo-list/static/media/github-brands.e2f07326.svg",
     "static/media/google-plus-g-brands.e8bde05b.svg": "/todo-list/static/media/google-plus-g-brands.e8bde05b.svg",
     "static/media/trash(white).96ae42b3.svg": "/todo-list/static/media/trash(white).96ae42b3.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.6499a3fd.js",
-    "static/css/2.f83b9687.chunk.css",
-    "static/js/2.666ae849.chunk.js",
-    "static/css/main.9ca0baa1.chunk.css",
-    "static/js/main.42ba4c25.chunk.js"
+    "static/js/runtime-main.73d753c7.js",
+    "static/css/2.a2032d84.chunk.css",
+    "static/js/2.a741ca2b.chunk.js",
+    "static/css/main.02cec1bc.chunk.css",
+    "static/js/main.67d89b32.chunk.js"
   ]
 }
